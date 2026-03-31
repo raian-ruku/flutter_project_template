@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:chat_app/core/services/connectivity_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'connectivity_event.dart';
@@ -10,17 +9,17 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   StreamSubscription<bool>? _connectivitySubscription;
 
   ConnectivityBloc({required ConnectivityService connectivityService})
-    : _connectivityService = connectivityService,
-      super(ConnectivityState(isConnected: connectivityService.isConnected)) {
+      : _connectivityService = connectivityService,
+        super(ConnectivityState(isConnected: connectivityService.isConnected)) {
     _connectivityService.initialize();
     on<ConnectivityChangedEvent>(_onConnectivityChanged);
     on<CheckConnectivityEvent>(_onCheckConnectivity);
 
     // Listen to connectivity changes from service
-    _connectivitySubscription = _connectivityService.connectionStatusStream
-        .listen((isConnected) {
-          add(ConnectivityChangedEvent(isConnected));
-        });
+    _connectivitySubscription =
+        _connectivityService.connectionStatusStream.listen((isConnected) {
+      add(ConnectivityChangedEvent(isConnected));
+    });
     add(CheckConnectivityEvent());
   }
 

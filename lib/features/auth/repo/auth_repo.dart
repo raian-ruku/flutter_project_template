@@ -1,7 +1,3 @@
-import 'package:chat_app/core/datasource/dio/dio_client.dart';
-import 'package:chat_app/core/datasource/exception/api_response.dart';
-import 'package:chat_app/core/utils/constants/app_constants.dart';
-import 'package:chat_app/features/auth/models/body/login_post_model.dart';
 import 'package:dio/dio.dart';
 import 'package:nb_utils/nb_utils.dart';
 

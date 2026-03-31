@@ -1,4 +1,7 @@
 import 'di_container.dart' as d;
+import 'package:simplified_text_widget/configuration.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -31,22 +34,24 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-  //  SimplifiedTextWidgetConfig.config(
-  //     responsiveFonts: true,
-  //   );
-    return MaterialApp(SystemChrome.setSystemUIOverlayStyle(
+    SimplifiedTextWidgetConfig.config(
+      responsiveFonts: true,
+    );
+    SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: AppColors.transparent,
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.dark,
       ),
     );
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
       builder: (context, child) {
         return ConnectivityWrapper(child: child!);
       },
-      home: LoginPage(),
+      // ! set your home here
+      // home: LoginPage(),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as path;
@@ -16,7 +15,8 @@ class DioClient {
   final PrettyDioLogger prettyDioLogger;
   String? token;
   Dio? dio;
-  PersistCookieJar? cookieJar;
+  // ! uncomment for cookie based auth
+  // PersistCookieJar? cookieJar;
   // AuthMode? _authMode;
   // String? _token;
 

@@ -1,5 +1,5 @@
-import 'package:chat_app/core/datasource/exception/error_response.dart';
 import 'package:dio/dio.dart';
+import '../exception/error_response.dart';
 
 class ApiErrorHandler {
   static dynamic getMessage(error) {

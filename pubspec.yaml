@@ -30,6 +30,6 @@ dependencies:
 fonts:
   - family: CustomTextFont
     fonts:
-      - asset: lib/assets/fonts/font.ttf
+      - asset: assets/fonts/font.ttf
 assets:
   - .env
